@@ -42,9 +42,19 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .= "<p>";
+    $view .= '<a href="detail2.php?id='.$result["id"].'">'; //変数を代入した上で書く方法
+        // ↑idを一つずつつけてあげるイメージ。またそれぞれのページへのハイパーリンクをつけてあげる
+        // get通信→URLにくっついているデータを取得する。detail.phpにデータを送ってあげている状態
+        // POSTで抽出→
+        // POSTのデメリットは入力したデータを残すことができない
     $view .= $result['date'].':'.$result['name'].':'.$result['comment'].':'.$result['rate'].':'.$result['favoritepage'].':'.$result['url']; 
-    // $view .= $result['date'].':'.$result['name'].':'.$result['comment']; 
-    // ↑ここの書き方が重要
+      // $view .= $result['date'].':'.$result['name'].':'.$result['comment']; 
+      // ↑ここの書き方が重要
+      $view .= '</a>';
+      $view .= '<a href="delete2.php?id='.$result["id"].'">';
+      // 削除ボタンを押すと、IDをキーに検索されて別ページに飛ぶ
+      $view .= '[削除]';
+      $view .= '</a>';
     $view .= "</p>";
   }
 }
