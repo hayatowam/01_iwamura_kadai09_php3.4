@@ -54,7 +54,7 @@ if ($status == false) {
         <legend>本のブックマーク</legend>
         <label>本のタイトル：<input type="text" name="name" value="<?= $result['name'] ?>"></label><br>
         <!-- ↓テキストエリアの場合はvalue=の形にしない  -->
-        <label>コメント：<textArea name="comment" rows="4" cols="40"><?= $result['comment'] ?>"></textArea></label><br>
+        <label>コメント：<textArea name="comment" rows="4" cols="40"><?= $result['comment'] ?></textArea></label><br>
         <label>評価：
         <select id="list" name="rate">
             <option hidden><?= $result['rate'] ?></option>
